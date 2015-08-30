@@ -15,27 +15,41 @@
 
 {% block outer %}
   <div class="off-canvas-container">
-    {{ nav(page, {classes: 'off-canvas-nav hide-desktop', logo: true, showChildren: true}) }}
+    {{ nav(page, {classes: 'off-canvas-nav ', logo: true, showChildren: true}) }}
   </div>
 {% endblock%}
 
 {% block header %}
   <div class="block top">
-      <div class="inner demo-inner">
+      <div class=" ">
         <header>
-          <div class="demo-header bg-red">
-            <h5>{% block headerMessage %}You are using the Apostrophe demo site.{% endblock %}</h5>
-            <p>Content in the demo can be edited in context by clicking on the pencil of each content type. Feel free to mess anything up, this page will automatically refresh every hour restoring the original content. If anything seems strange, someone else using the demo site has likely made a change. Check out <a href="http://apostrophenow.org" target="blank">apostrophenow.org</a> for more information.</p>
-          </div>
-          {{ nav(page, {classes: 'hide-mobile'}) }}
-          <a href="#" class="off-canvas-trigger hide-desktop">
+
+
+          {% block banner %}
+          {% endblock%}
+
+
+          <!--<h1>{{ __('All lessons') }}</h1>-->
+          {{ aposLocalePicker() }}
+          {{ aposLocalizationMenu({ edit: permissions.admin }) }}
+          {{ aposArea(page, 'lolo', {
+          controls: ['style', 'bold', 'italic', 'createLink', 'unlink', 'slideshow', 'video','banner'],
+          styles: [
+          { value: 'p', label: 'Text' },
+          { value: 'h3', label: 'Title' },
+          { value: 'h5', label: 'Subtitle' }
+          ],
+          lockups: ['left', 'right']
+          }) }}
+          <a href="#" class="off-canvas-trigger ">
             <svg class="a-toolbox">
               <use xlink:href="#a-toolbox" />
             </svg>
           </a>
 
         </header>
-      {% block headerContent %}
+
+        {% block headerContent %}
       {% endblock %}
     </div>
   </div>
@@ -60,23 +74,67 @@
 {# the page object. #}
 
 {% block footer %}
-  <footer class="block footer">
-    <div class="inner">
-      {% block footerContent %}
-        <div class="inline-middle width-50">
-          Apostrophe is led by <a href="http://punkave.com">P'unk Avenue</a> in Philadelphia, PA.
-        </div>{#
-      #}<div class="inline-middle width-50 align-right">
-          <a class="inline-top footer-logo" href="http://punkave.com">
-            <img src="/images/demo_logo_punk.png" class="" alt="P'unk Avenue" width="150" height="32" />
-          </a>
-        </div>
-      {% endblock %}
+<footer class="footer-distributed">
+
+  <div class="footer-left">
+
+    <h3>ПЕРФЕКТ центр развития</h3>
+
+    <p class="footer-links">
+      <a href="index.php?page=main&amp;lang=ru">Главная</a>
+      .
+      <a href="index.php?page=departments&amp;lang=ru">Услуги</a>
+      .
+      <a href="index.php?page=collection&amp;lang=ru">Коллекция</a>
+      .
+      <a href="index.php?page=contact&amp;lang=ru">Контакт</a>
+      .
+      <a href="index.php?page=information&amp;lang=ru">Информация</a>
+    </p>
+
+    <p class="footer-company-name">P E R F E K T © 2015</p>
+  </div>
+
+  <div class="footer-center">
+
+    <div>
+      <i class="fa fa-map-marker"></i>
+
+      <p><span>BÜROZEITEN:</span>MO-SA 9:00-19:00
+        <span>Habsburgergasse 4/4</span> 1010 Wien, Österreich</p>
     </div>
-    <div class="inner">
-      <div class="linode-credit">
-        Generously hosted by <a href="http://linode.com">linode</a>.
-      </div>
+
+    <div>
+      <i class="fa fa-phone"></i>
+      <p>+43 676 421 6282
+        <br>
+        +43 1 8904454
+      </p>
     </div>
-  </footer>
+
+    <div>
+      <i class="fa fa-envelope"></i>
+      <p><a href="mailto:office@zentrumperfekt.at">office@zentrumperfekt.at</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer-right">
+
+    <p class="footer-company-about">
+      <span></span>
+      КАЖДЫЙ ИМЕЕТ ПРАВО НА РАЗВИТИЕ СПОСОБНОСТЕЙ И ТАЛАНТОВ                </p>
+
+    <div class="footer-icons">
+
+      <a href="https://www.facebook.com/tivms"><i class="fa fa-facebook"></i></a>
+      <a href="https://twitter.com/IRINATATARENKO7"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-youtube"></i></a>
+      <a href="http://ok.ru/perfektper"><i class="fa fa-odnoklassniki"></i></a>
+
+    </div>
+
+  </div>
+
+</footer>
 {% endblock %}

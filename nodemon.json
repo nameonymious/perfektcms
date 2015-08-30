@@ -1,0 +1,5 @@
+{
+  "verbose": false,
+  "ext": "html js",
+  "ignore": ["node_modules/*", "public/css/master*","public/js/_site-compiled.js"]
+}

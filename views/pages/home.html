@@ -6,8 +6,17 @@
 {% block breadcrumbs %}
 {% endblock %}
 
+
+{% block banner %}
+{{ aposSingleton(page, 'hero'+getLocale(), 'banner', { styles: [
+{ value: 'p', label: 'Text' },
+{ value: 'h3', label: 'Title' },
+{ value: 'h5', label: 'Subtitle' }
+]} ) }}
+{% endblock%}
+
 {% block main %}
-  <div class="block content">
+<!--  <div class="block content">
     <div class="inner">
       <div class="demo-pageheader">
         <img class="demo-apos-lockup pageheader-logo" src="/images/demo_logo_apos_lockup.png" alt="Apostrophe">
@@ -36,16 +45,17 @@
     </div>
   </div>
 
-  <div class="block bg-gray block--5">
+<div class="block bg-gray block--5">
     <div class="inner">
-      {{ aposSingleton(page, 'blogWidget', 'blog', { limit: 3 }) }}
+        {{ aposSingleton(page, 'blogWidget', 'blog', { limit: 3 }) }}
     </div>
-  </div>
-
+</div>
+-->
+<!--
   <div class="block content--bottom">
     <div class="inner demo-pageheader">
       {{ aposArea(page, 'mainBottom', {
-        controls: ['style', 'bold', 'italic', 'createLink', 'unlink', 'slideshow', 'video'],
+        controls: ['style', 'bold', 'italic', 'createLink', 'unlink', 'slideshow', 'video','banner'],
         styles: [
           { value: 'p', label: 'Text' },
           { value: 'h3', label: 'Title' },
@@ -54,5 +64,5 @@
         lockups: ['left', 'right']
       }) }}
     </div>
-  </div>
+  </div>-->
 {% endblock %}

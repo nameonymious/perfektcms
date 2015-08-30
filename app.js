@@ -46,8 +46,37 @@ site.init({
     types: [
       { name: 'default', label: 'Default Page' },
       { name: 'home', label: 'Home Page' },
-      { name: 'blog', label: 'Blog' }
+      { name: 'blog', label: 'Blog' },
+      { name: 'snippets', label: 'Snippets' }
     ]
+  },
+
+  /*i18n: {
+    // setup some locales - other locales default to defaultLocale silently
+    locales:['ru', 'de'],
+
+    // you may alter a site wide default locale (optional, defaults to 'en')
+    defaultLocale: 'ru',
+
+    // sets a custom cookie name to parse locale settings from  - defaults to apos_language (optional)
+    cookie: 'apos_language'
+
+    // whether to write new locale information to disk automatically - defaults to true (you will want to shut it off in production)
+     ,updateFiles: false
+  },*/
+
+  i18n: {
+    // setup some locales - other locales default to defaultLocale silently
+    locales:['ru', 'de'],
+
+    // you may alter a site wide default locale (optional, defaults to 'en')
+    //defaultLocale: 'ru',
+
+    // sets a custom cookie name to parse locale settings from  - defaults to apos_language (optional)
+    cookie: 'yourcookiename',
+
+    // whether to write new locale information to disk automatically - defaults to true (you will want to shut it off in production)
+    // updateFiles: false
   },
 
   lockups: {
@@ -74,8 +103,11 @@ site.init({
   // These are the modules we want to bring into the project.
   modules: {
     // Styles required by the new editor, must go FIRST
+
     'apostrophe-editor-2': {},
     'apostrophe-ui-2': {},
+
+
     'apostrophe-blog-2': {
       perPage: 5,
       pieces: {
@@ -115,7 +147,65 @@ site.init({
     'apostrophe-browserify': {
       files: ["./public/js/modules/_site.js"]
     },
-    'apostrophe-demo-login': {
+
+    'apostrophe-schema-widgets': {
+      widgets: [
+        {
+          name: 'banner',
+          label: 'Banner',
+          extend: 'apostrophe-snippets',
+          schema: [
+            {
+              name: 'headline',
+              label: 'headline',
+              type: 'string',
+             // required: true
+            },
+            {
+              name: 'tagline',
+              label: 'tagline',
+              type: 'string',
+              //required: true
+            },
+            {
+              name: 'image',
+              label: 'image',
+              type: 'singleton',
+              //required: true,
+              widgetType: 'slideshow',
+              options: {
+                limit: 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    'apostrophe-snippets': {},
+    'stories': {
+      extend: 'apostrophe-snippets',
+      name: 'stories',
+      label: 'Stories',
+      instance: 'story',
+      instanceLabel: 'Story',
+      addFields: [
+        {
+          name: 'year',
+          type: 'integer',
+          label: 'Year',
+          def: '2013'
+        },
+        {
+          name: 'publisher',
+          type: 'string',
+          label: 'Publisher',
+        }
+      ]
+    },
+    'apostrophe-localization': {
+      defaultLocale: 'ru',
+      locales: { 'ru': 'Russski', 'de': 'Deutsch'},
+      neverTypes: [ 'banner', 'hero','home' ]
     }
   },
 

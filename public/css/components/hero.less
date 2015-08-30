@@ -1,0 +1,45 @@
+.bg-image {
+  position: relative;
+}
+
+.bg-image img {
+  display: block;
+  width: 100%;
+  //max-width: 1200px; /* corresponds to max height of 450px */
+  margin: 0 auto;
+}
+
+.bg-image .heroText {
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  left: 5%;
+  right: 0;
+  color: white;
+  font-size: 20px;
+
+  & h1 {
+    font-size: 30px;
+    margin-bottom: 0px;
+    margin-top: 9px;
+  }
+
+  & h2 {
+    font-size: 20px;
+    margin-top: 0px;
+  }
+
+  @media (min-width: 769px) {
+    top: 17px;
+
+    & h1 {
+      font-size: 79px;
+      margin-bottom: 0px;
+    }
+
+    & h2 {
+      font-size: 33px;
+      margin-top: 0px;
+    }
+  }
+}
