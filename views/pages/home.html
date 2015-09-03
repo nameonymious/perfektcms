@@ -8,7 +8,7 @@
 
 
 {% block banner %}
-{{ aposSingleton(page, 'hero'+getLocale(), 'banner', { styles: [
+{{ aposSingleton(page, 'hero'+getLocale(), 'hero', { styles: [
 { value: 'p', label: 'Text' },
 { value: 'h3', label: 'Title' },
 { value: 'h5', label: 'Subtitle' }
@@ -16,6 +16,11 @@
 {% endblock%}
 
 {% block main %}
+
+<div class="container">
+{{ aposBlocks(page, 'blocks', [ 'one', 'two' ,'box']) }}
+{{ aposFormsMenu(permissions) }}
+</div>
 <!--  <div class="block content">
     <div class="inner">
       <div class="demo-pageheader">

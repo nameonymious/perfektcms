@@ -1,0 +1,23 @@
+{% if item   %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="span12">
+            <div class="bg-image">
+                {% if item.image %}
+                {% if item.image.items[0]._items[0] %}
+                <img src=" {{ aposFilePath(item.image.items[0]._items[0] )}}">
+                {% endif %}
+                {% endif %}
+                <div class="heroText">
+                    {% if item.headline %}
+                    <h1> {{ item.headline}} </h1>
+                    {% endif %}
+                    {% if item.tagline %}
+                    <h2> {{item.tagline}}</h2>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}

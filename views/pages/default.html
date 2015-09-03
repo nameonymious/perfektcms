@@ -9,6 +9,14 @@
 
 {% block upperClass %}bg-gold{% endblock %}
 
+{% block banner %}
+{{ aposSingleton(page, 'banner'+getLocale(), 'banner', { styles: [
+{ value: 'p', label: 'Text' },
+{ value: 'h3', label: 'Title' },
+{ value: 'h5', label: 'Subtitle' }
+]} ) }}
+{% endblock%}
+
 {% block headerContent %}
   <div class="demo-pageheader">
     <div class="column column--vertical-center width-50">
@@ -54,10 +62,10 @@
             </li>
           {% endfor %}
         </ul>
-      </div>{#
-    #}<div class="demo-main inline-top width-75">
+      </div>
+    <div class="demo-main inline-top width-75">
         {{ aposArea(page, 'lolo', {
-          controls: ['style', 'bold', 'italic', 'createLink', 'unlink', 'slideshow', 'video','banner'],
+          controls: ['style', 'bold', 'italic', 'createLink', 'unlink', 'slideshow', 'video','banner' ],
           styles: [
             { value: 'p', label: 'Text' },
             { value: 'h3', label: 'Title' },

@@ -32,15 +32,7 @@
           <!--<h1>{{ __('All lessons') }}</h1>-->
           {{ aposLocalePicker() }}
           {{ aposLocalizationMenu({ edit: permissions.admin }) }}
-          {{ aposArea(page, 'lolo', {
-          controls: ['style', 'bold', 'italic', 'createLink', 'unlink', 'slideshow', 'video','banner'],
-          styles: [
-          { value: 'p', label: 'Text' },
-          { value: 'h3', label: 'Title' },
-          { value: 'h5', label: 'Subtitle' }
-          ],
-          lockups: ['left', 'right']
-          }) }}
+          {{ aposArea(page, 'home')  }}
           <a href="#" class="off-canvas-trigger ">
             <svg class="a-toolbox">
               <use xlink:href="#a-toolbox" />

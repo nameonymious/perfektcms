@@ -13,6 +13,7 @@
   "author": "P'unk Avenue",
   "license": "BSD",
   "dependencies": {
+    "apostrophe-blocks": "^0.5.54",
     "apostrophe-blog-2": "0.5.x",
     "apostrophe-browserify": "0.5.x",
     "apostrophe-editor-2": "0.5.x",
@@ -26,5 +27,8 @@
     "apostrophe-snippets": "^0.5.79",
     "apostrophe-ui-2": "0.5.x",
     "optimist": "~0.6.0"
+  },
+  "devDependencies": {
+    "apostrophe-forms": "^0.5.3"
   }
 }
