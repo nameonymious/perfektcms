@@ -47,6 +47,7 @@ site.init({
             {name: 'default', label: 'Default Page'},
             {name: 'home', label: 'Home Page'},
             {name: 'blog', label: 'Blog'},
+            {name: 'department', label: 'Department'},
             {name: 'snippets', label: 'Snippets'}
         ]
     },
@@ -208,7 +209,36 @@ site.init({
                             }
                         }
                     ]
-                }
+                },
+                {
+                    name: 'box',
+                    label: 'BOX',
+                    extend: 'apostrophe-snippets',
+                    schema: [
+                        {
+                            name: 'color',
+                            label: 'Color',
+                            type: 'string',
+                            // required: true
+                        },
+                        {
+                            name: 'tagline',
+                            label: 'tagline',
+                            type: 'string',
+                            //required: true
+                        },
+                        {
+                            name: 'image',
+                            label: 'image',
+                            type: 'singleton',
+                            //required: true,
+                            widgetType: 'slideshow',
+                            options: {
+                                limit: 1
+                            }
+                        }
+                    ]
+                },
             ]
         },
         'apostrophe-snippets': {},
@@ -259,7 +289,7 @@ site.init({
         'apostrophe-localization': {
             defaultLocale: 'ru',
             locales: {'ru': 'Russski', 'de': 'Deutsch'},
-            neverTypes: ['banner', 'hero', 'home', 'slideShow', 'default', 'image', 'thumbnail']
+            neverTypes: ['banner', 'hero', 'home', 'slideShow', 'default', 'image', 'thumbnail', 'department']
         }
     },
 
