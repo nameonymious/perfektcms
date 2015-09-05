@@ -30,9 +30,7 @@
 
 
           <!--<h1>{{ __('All lessons') }}</h1>-->
-          {{ aposLocalePicker() }}
-          {{ aposLocalizationMenu({ edit: permissions.admin }) }}
-          {{ aposArea(page, 'home')  }}
+
           <a href="#" class="off-canvas-trigger ">
             <svg class="a-toolbox">
               <use xlink:href="#a-toolbox" />
@@ -127,6 +125,8 @@
     </div>
 
   </div>
+    {{ aposLocalePicker() }}
+    {{ aposLocalizationMenu({ edit: permissions.admin }) }}
 
 </footer>
 {% endblock %}
