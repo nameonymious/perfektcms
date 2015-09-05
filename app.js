@@ -8,10 +8,16 @@ site.init({
     // This line is required and allows apostrophe-site to use require() and manage our NPM modules for us.
     root: module,
     shortName: 'apostrophe-sandbox',
-    hostName: 'apostrophe-sandbox',
+    hostName: 'apostrophe-sandbox.com',
     title: 'Apostrophe Sandbox',
     sessionSecret: 'apostrophe sandbox demo party',
     adminPassword: 'demo',
+
+    mailer: {
+        transport: 'sendmail',
+        transportOptions: {}
+    },
+
 
     // Force a2 to prefix all of its URLs. It still
     // listens on its own port, but you can configure
@@ -209,6 +215,58 @@ site.init({
                         }
                     ]
                 }
+                ,
+                {
+                    name: 'kkk',
+                    label: 'k',
+                    extend: 'apostrophe-snippets',
+                    schema: [
+                        {
+                            name: 'headline',
+                            label: 'headline',
+                            type: 'string',
+                            // required: true
+                        },
+                        {
+                            name: 'tagline',
+                            label: 'tagline',
+                            type: 'string',
+                            //required: true
+                        },
+                        {
+                            name: 'image',
+                            label: 'image',
+                            type: 'singleton',
+                            //required: true,
+                            widgetType: 'slideshow',
+                            options: {
+                                limit: 1
+                            }
+                        }
+                    ]
+                },
+
+                {
+                    name: 'box',
+                    label: 'Box',
+                    instructions: 'Click "add" to add your first link. Enter a label and paste a URL for each link.',
+                    schema: [
+                        {
+                            name: 'box',
+                            type: 'area',
+                            label: 'content',
+                            options: {
+
+                                styles: [
+                                    {value: 'p', label: 'P'},
+                                    {value: 'h2', label: 'H2', attributes: {class: 'normal-heading'}},
+                                    {value: 'h3', label: 'Blue Heading', attributes: {class: 'blue-text'}}
+                                ]
+
+                            }
+                        }
+                    ]
+                }
             ]
         },
         'apostrophe-snippets': {},
@@ -260,6 +318,21 @@ site.init({
             defaultLocale: 'ru',
             locales: {'ru': 'Russski', 'de': 'Deutsch'},
             neverTypes: ['banner', 'hero', 'home', 'slideShow', 'default', 'image', 'thumbnail']
+        }
+    },
+
+    sanitizeHtml: {
+
+
+        allowedAttributes: {
+            a: ['href', 'name', 'target'],
+            img: ['src'],
+            div: ['class'],
+            h2: ['class']
+
+        },
+        allowedClasses: {
+            'h2': ['normal-heading']
         }
     },
 

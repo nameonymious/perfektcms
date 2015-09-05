@@ -4,6 +4,8 @@
 
     <div class="row">
 
+
+
         {% if item.image %}
         {% if item.image.items[0]._items[0] %}
         <div class="textImage" style=" background: url({{ aposFilePath(item.image.items[0]._items[0] )}}) 50% 50% / cover ;">
@@ -38,4 +40,6 @@
         <!--</div>-->
     </div>
 </div>
+
+        {{ aposArea(global, 'bannerarea') }}
 {% endif %}
